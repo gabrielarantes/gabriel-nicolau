@@ -3,22 +3,23 @@
     <div class="wrapper">
       <div class="aside">
         <img src="../assets/img.jpg" >
-        <p class="name">{{name}}</p>
-        <p class="function">{{title}}</p>
+        <p class="name">Gabriel Nicolau</p>
+        <p class="function">Web Developer</p>
 
-        <ul>
-          <li>
-            <a>About me</a>
-            <a>Experience</a>
-            <a>Education</a>
-            <a>Skills</a>
-          </li>
-        </ul>
+        <div class="menu">
+          <a href="about">About me</a>
+          <a href="experience">Experience</a>
+          <a href="education">Education</a>
+          <a href="skills">Skills</a>
+        </div>
+          
 
       </div>
+
       <div class="content">
         
       </div>
+
     </div>
   </div>
 </template>
@@ -35,11 +36,16 @@ export default {
 }
 </script>
 
-<style>
+<style scope>
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700');
+/*@import url('https://fonts.googleapis.com/css?family=PT+Serif');*/
 
 body{
   padding: 0;
   margin: 0;
+  /*font-family: 'PT Serif', sans-serif;*/
+  font-family: 'Rubik', sans-serif;
 }
 
 .portfolio{
@@ -50,21 +56,63 @@ body{
 
 .portfolio .wrapper{
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 350px auto;
 }
 
 .portfolio .wrapper .aside{
   background: url('../assets/bg-black.jpg');
-  height: 100vh;
+  height: 100%;
   color: #fff;
   text-align: center;
-  overflow: hidden;
+  padding: 50px 30px;
+  text-transform: uppercase;
+  /*overflow: hidden;*/
 }
 
 .portfolio .wrapper .aside img{
-  border-radius: 150px;
-  max-width: 150px;
-  margin-top: 50px;
+  border-radius: 200px;
+  max-width: 200px;
+  margin: 0;
 }
+
+.portfolio .wrapper .aside p{
+  display: block;
+}
+
+.portfolio .wrapper .aside p.name{
+  font-size: 27px;
+  line-height: 27px;
+  margin: 0;
+  padding : 25px 0 15px 0;
+  font-weight: 400;
+}
+
+.portfolio .wrapper .aside p.function{
+  font-size: 20px;
+  line-height: 20px;
+  padding: 20px 0;
+  margin : 0;
+}
+
+.portfolio .wrapper .aside .menu{
+  margin-top: 45px;
+  display: block;
+}
+
+.portfolio .wrapper .aside a{
+ font-size: 16px;
+ display: block;
+ text-align: left;
+ margin: 15px 0;
+ color: #fff;
+ text-decoration: none;
+ opacity : .7;
+
+}
+
+.portfolio .wrapper .aside a:hover{
+  opacity : 1;
+}
+
 
 </style>
