@@ -7,17 +7,33 @@
         <p class="function">Web Developer</p>
 
         <div class="menu">
-          <a href="about">About me</a>
-          <a href="experience">Experience</a>
-          <a href="education">Education</a>
-          <a href="skills">Skills</a>
+          
+          <a v-on:click.prevent.stop=" contentapp = 'about' " >About me</a>
+          <a v-on:click.prevent.stop=" contentapp = 'experience' " >Experience</a>
+          <!-- <a v-on:click="changeContent('education')" >Education</a> -->
+          <a v-on:click.prevent.stop=" contentapp = 'skills' " >Skills</a>
         </div>
           
 
       </div>
 
       <div class="content">
-        
+        <!-- <div class="lds-ripple"><div></div><div></div></div> -->
+
+        <transition name="fade">
+          <div v-if="contentapp == 'about'">
+            <h1>About Me</h1>
+            <p>Hello! My name is Gabriel Nicolau. I'm web developer</p>
+          </div>
+        </transition>
+
+        <transition name="fade">
+          <div v-if="contentapp == 'experience'">
+            <h1>Experience</h1>
+            <p>Hello! My name is Gabriel Nicolau. I'm web developer</p>
+          </div>
+        </transition>
+
       </div>
 
     </div>
@@ -30,8 +46,13 @@ export default {
   data () {
     return {
       name: 'Gabriel Nicolau',
-      title : 'Web Developer'
+      title : 'Web Developer',
+      contentapp : 'about'
     }
+  },
+
+  methods : {
+    
   }
 }
 </script>
@@ -60,7 +81,7 @@ body{
 }
 
 .portfolio .wrapper .aside{
-  background: url('../assets/bg-black.jpg');
+  background: url('../assets/bg-black.png');
   height: 100%;
   color: #fff;
   text-align: center;
@@ -114,5 +135,62 @@ body{
   opacity : 1;
 }
 
+
+/*div loading*/
+
+.lds-ripple {
+  display: inline-block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+
+  left: 50%;
+  top: 50%;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #000;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
+/*-------------------------------*/
+
+.fade-enter-active, .fade-leave-active{
+  transition: opacity .3s ease;
+}
+
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
+
+/*------------- GERAIS --------------*/
+
+h1{
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
 
 </style>
